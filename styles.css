@@ -1,0 +1,142 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #252323;
+    margin: 0;
+    padding: 20px;
+}
+
+#bingo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Reduce el espacio entre los cartones */
+    justify-content: center;
+    width: 100%;
+    max-width: 2000px; /* Limita el ancho para que se ajusten 5 cartones por fila */
+    margin-top: 20px;
+}
+
+.bingo-card {
+    width: 450px; /* Reducimos el ancho del cartón */
+    border: 4px solid #23be04;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    grid-template-rows: repeat(5, 1fr); /* 5 filas */
+    gap: 3px; /* Espacio entre celdas más pequeño */
+    background-color: #ffffff; /* Color de fondo fijo */
+    margin: 2px; /* Margen más pequeño */
+    background-size: contain; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    position: relative; /* Para posicionar el contenido adicional */
+    color: rgb(255, 255, 255); /* Texto negro para contraste */
+    overflow: hidden; /* Para asegurar que no haya desbordamientos */    
+}
+
+.bingo-card div {
+    border:3px solid #ffffff;
+    background-color: #b60088e8;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px; /* Reducimos el padding dentro de cada celda */
+    font-size: 35px; /* Disminuimos el tamaño de la fuente */
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px; /* Aquí se aplican las esquinas redondeadas */
+}
+
+.bingo-header {
+    color: #ffffff; /* Color del texto */
+    background-color: #c9c6c6; /* Color de fondo */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: bold;
+    -webkit-text-stroke: 2px #030303; /* Contorno negro de 1px */
+    }
+
+
+
+.bingo-card .free {
+    background-color: #ffffff; /* Fondo del área "FREE" */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0; /* Oculta el texto si queda algo */
+    border: 3px solid #adadad;
+    grid-column: 3; /* Coloca el área "FREE" en la columna 3 (columna N) */
+    grid-row: 4; /* Coloca el área "FREE" en la fila 3 (fila central) */
+}
+
+.bingo-card .free img {
+    width: 60px; /* Tamaño de la imagen del "FREE" */
+    height: 60px; /* Tamaño de la imagen del "FREE" */
+    opacity: 0.2; /* Transparencia de la imagen del "FREE" */
+}
+
+.bingo-card .bingo-footer {
+    grid-column: span 5; /* Hace que el pie de página ocupe todo el ancho del cartón */
+    gap: 8px;
+    text-align: center;
+    font-size: 10px;
+    color: black; /* Cambia según el fondo */
+    margin-top: 5px;
+    background-color: #eeeeee; /* Fondo del pie de página para contraste */
+    padding: 1px;
+    border-color: #44444400;
+}
+
+.bingo-card .serial,
+.bingo-card .bingo-name {
+    text-shadow: 1px 1px 2px rgba(50, 6, 247, 0.356); /* Sombra para darle profundidad */
+    color: #ffffff; /* Color oscuro pero profesional */
+    text-transform: uppercase;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+
+.bingo-card .bingo-name {
+    font-weight: bold; /* Mantiene el peso del texto para el nombre del bingo */
+}
+
+/* Fondo general del cartón */
+.bingo-card {
+    position: relative; /* Para que el pseudo-elemento se posicione relativo al cartón */
+    overflow: hidden; /* Asegura que el pseudo-elemento no se salga del contenedor */
+    border-radius: 8px; /* Mantiene el borde redondeado */
+}
+
+.bingo-card::before {
+    content: ''; /* Necesario para los pseudo-elementos */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('fondo.png'); /* Imagen de fondo del cartón */
+    background-size: contain; /* Ajusta el tamaño de la imagen de fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    opacity: 0.9; /* Ajusta la opacidad solo para la imagen de fondo */
+    z-index: 1; /* Asegura que esté detrás del contenido del cartón */
+}
+
+.bingo-card div {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima de la imagen */
+}
+
+
+/* Imagen en el espacio "FREE" */
+.bingo-card .free {
+    background-image: url('icon.png'); /* Imagen para el espacio "FREE" */
+    background-size: contain; /* Ajusta el tamaño de la imagen para que quepa */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    border: 1 px; /* Elimina el borde para el espacio "FREE" */
+}
+
